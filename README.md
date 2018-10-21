@@ -1,7 +1,6 @@
 # Introducing Spot - Your Companion in Making Healthy Choices
 ## HackHarvard
-
-<img src="./Mockups/logo.png" alt="Logo"></img>
+<img src="./Raw Assets/logo.png" alt="">
   
 ### What is the project about?
 People are taking greater care than ever about what they eat. That’s why most smartphones already come with apps to track your health.
@@ -19,6 +18,10 @@ This concept built for the healthcare industry combines AR (augmented reality) m
 After it has done recognising your meal, the app calculates your calories, protein, or other nutrition values your decided you to keep track and shows you a calculation, preview of your meal and information.
 This repository contains the Augmented Reality project we worked on during the HackHarvard International Hackathon 2018
 
-[![Introducing Spot - Your Companion in Making Healthy Choices](http://img.youtube.com/vi/2_GUs7A-0Tg/0.jpg)](http://www.youtube.com/watch?v=2_GUs7A-0Tg "Introducing Spot - Your Companion in Making Healthy Choices")
+<img src="./Raw Assets/iPhone X_1.png" alt="Home Screen"> <img src="./Raw Assets/iPhone X_2.png" alt="Augmented Reality">
 
-<img src="./Mockups/iPhone X_1.png" alt="Home Screeb"> <img src="./Mockups/iPhone X_2.png" alt="Augmented Reality">
+<img src="./Raw Assets/Desktop 1.jpg" alt="">
+<img src="./Raw Assets/Desktop 2.jpg" alt="">
+<img src="./Raw Assets/Desktop 3.jpg" alt="">
+
+[![Introducing Spot - Your Companion in Making Healthy Choices](http://img.youtube.com/vi/2_GUs7A-0Tg/0.jpg)](http://www.youtube.com/watch?v=2_GUs7A-0Tg "Introducing Spot - Your Companion in Making Healthy Choices")
