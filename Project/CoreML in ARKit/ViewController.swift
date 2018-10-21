@@ -12,10 +12,20 @@ import ARKit
 import Vision
 import Lottie
 
-let filterNames = ["CAFFEINE","DAIRY FREE","EGG FREE","FAT FREE","GLUTEN FREE","NUT FREE","SOY FREE","SUGAR FREE"]
-let filterPositive = ["Caffeine Free","Dairy Free","Egg Free","Fat Free","Gluten Free","Nut Free","Soy Free","Sugar Free"]
+let filterNames = ["CAFFEINE","DAIRY FREE","EGG FREE","LESS FAT","GLUTEN FREE","NUT FREE","SOY FREE","SUGAR FREE"]
+let filterPositive = ["Least Caffeine Content","Dairy Free","Egg Free","Least Fat content","Gluten Free","Nut Free","Soy Free","Sugar Free"]
 let filterImages = ["Caffeine","DairyFree","EggFree","FatFree","GlutenFree","NutFree","SoyFree","SugarFree"]
 let filterNegative = ["Contains Caffeine","Contains Dairy","Contains Egg","Contains Fat","Contains Gluten","Contains Nut","Contains Soy","Contains Sugar"]
+
+var bananaCode = "Banana "
+var cafeMochaCode = "Cafe Mocha "
+var muffinCode = "Muffin "
+var CocaColaCode = "CocaCola "
+var MandMCode = "M&M "
+var YogurtCode = "Yogurt "
+
+var detectedObjectCode = [String]()
+var detectedObjectData = [food]()
 
 var totalLength = 0
 var H = [Int]()
@@ -35,23 +45,80 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        H.removeAll()
-        let number = Int.random(in: 0 ..< totalLength)
-        previousSelected = number
-        for i in 0...(totalLength - 1) {
-            if i == number {
-                H.append(1)
-            } else {
-                H.append(0)
+        detectedObjectData = []
+        for i in detectedObjectCode {
+            if i == bananaCode {detectedObjectData.append(bananaContents)}
+            else if i == cafeMochaCode {detectedObjectData.append(CafeMochaContents)}
+            else if i == YogurtCode {detectedObjectData.append(YogurtContents)}
+            else if i == muffinCode {detectedObjectData.append(muffinContents)}
+            else if i == MandMCode {detectedObjectData.append(MandMContents)}
+            else if i == CocaColaCode {detectedObjectData.append(CocaColaContents)}
+            else {}
+        }
+
+        if indexPath.row == 0 {
+            for i in 0...detectedObjectData.count-1{
+                changeNodeText(text: String(detectedObjectData[i].caffeineContent) + " units Caffeine", number: i)
+            }
+        } else if indexPath.row == 1 {
+            for i in 0...detectedObjectData.count-1{
+                if detectedObjectData[i].dairyFree == true {selectedPinNode(number: i, filter:filterPositive[indexPath.row])}
+                else {deselectPinNode(number: i, filter:filterNegative[indexPath.row])}
+            }
+        } else if indexPath.row == 2 {
+            for i in 0...detectedObjectData.count-1{
+                if detectedObjectData[i].eggFree == true {selectedPinNode(number: i, filter:filterPositive[indexPath.row])}
+                else {deselectPinNode(number: i, filter:filterNegative[indexPath.row])}
+            }
+        } else if indexPath.row == 3 {
+            for i in 0...detectedObjectData.count-1{
+                changeNodeText(text: String(detectedObjectData[i].fatContent) + " units Fat", number: i)
+            }
+        } else if indexPath.row == 4 {
+            for i in 0...detectedObjectData.count-1{
+                if detectedObjectData[i].glutenFree == true {selectedPinNode(number: i, filter:filterPositive[indexPath.row])}
+                else {deselectPinNode(number: i, filter:filterNegative[indexPath.row])}
+            }
+        } else if indexPath.row == 5 {
+            for i in 0...detectedObjectData.count-1{
+                if detectedObjectData[i].nutsFree == true {selectedPinNode(number: i, filter:filterPositive[indexPath.row])}
+                else {deselectPinNode(number: i, filter:filterNegative[indexPath.row])}
+            }
+        } else if indexPath.row == 6 {
+            for i in 0...detectedObjectData.count-1{
+                changeNodeText(text: "No information available", number: i)
+//                if detectedObjectData[i].soyFree == true {selectedPinNode(number: i, filter:filterPositive[indexPath.row])}
+//                else {deselectPinNode(number: i, filter:filterNegative[indexPath.row])}
+            }
+        } else if indexPath.row == 7 {
+            for i in 0...detectedObjectData.count-1{
+                if detectedObjectData[i].sugarFree == true {selectedPinNode(number: i, filter:filterPositive[indexPath.row])}
+                else {deselectPinNode(number: i, filter:filterNegative[indexPath.row])}
+            }
+        } else {
+            for i in 0...detectedObjectData.count-1{
+                if detectedObjectData[i].dairyFree == true {selectedPinNode(number: i, filter:filterPositive[indexPath.row])}
+                else {deselectPinNode(number: i, filter:filterNegative[indexPath.row])}
             }
         }
-        for i in 0...(H.count-1) {
-            if H[i] == 0{
-                deselectPinNode(number: i, filter:filterPositive[indexPath.row])
-            } else {
-                selectedPinNode(number: i, filter:filterNegative[indexPath.row])
-            }
-        }
+        
+//        H.removeAll()
+//        let number = Int.random(in: 0 ..< totalLength)
+//        previousSelected = number
+//        for i in 0...(totalLength - 1) {
+//            if i == number {
+//                H.append(1)
+//            } else {
+//                H.append(0)
+//            }
+//        }
+//        for i in 0...(H.count-1) {
+//            if H[i] == 0{
+//                deselectPinNode(number: i, filter:filterPositive[indexPath.row])
+//            } else {
+//                selectedPinNode(number: i, filter:filterNegative[indexPath.row])
+//            }
+//        }
     }
     
     func changeNodeText(text:String, number:Int){
@@ -76,6 +143,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     
     @IBOutlet weak var filterCollectionView: UICollectionView!
     
+    override func viewDidAppear(_ animated: Bool) {
+        boatAnimation = LOTAnimationView(name: "barcode_scanner")
+        boatAnimation!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        boatAnimation!.contentMode = .scaleAspectFill
+        boatAnimation!.frame = scannerAnimation.bounds
+        scannerAnimation.addSubview(boatAnimation!)
+        boatAnimation!.loopAnimation = true
+        boatAnimation?.play()
+    }
+    
+    var boatAnimation: LOTAnimationView?
     @IBOutlet var sceneView: ARSCNView!
     let bubbleDepth : Float = 0.01 // the 'depth' of 3D text
     var latestPrediction : String = "…" // a variable containing the latest CoreML prediction
@@ -86,15 +164,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var boatAnimation: LOTAnimationView?
-        boatAnimation = LOTAnimationView(name: "barcode_scanner")
-        boatAnimation!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        boatAnimation!.contentMode = .scaleAspectFill
-        boatAnimation!.frame = scannerAnimation.bounds
-        scannerAnimation.addSubview(boatAnimation!)
-        boatAnimation!.loopAnimation = true
-        boatAnimation?.play()
-        
         filterCollectionView.dataSource = self
         filterCollectionView.delegate = self
         // Set the view's delegate
@@ -173,6 +242,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             sceneView.scene.rootNode.addChildNode(node)
             node.position = worldCoord
             NODES.append(node)
+            detectedObjectCode.append(latestPrediction)
             closestRESULT.append(closestResult)
             totalLength = NODES.count
         }

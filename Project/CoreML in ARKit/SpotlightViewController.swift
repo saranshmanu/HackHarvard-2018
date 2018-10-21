@@ -14,7 +14,7 @@ class SpotlightViewController: UIViewController {
     @IBOutlet weak var loader: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "home") as! ViewController
             self.present(newViewController, animated: true, completion: nil)
