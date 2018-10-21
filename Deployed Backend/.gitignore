@@ -1,0 +1,8 @@
+# NodeJS modules
+node_modules
+
+# Environment 
+.env
+
+# OS Generated files
+.DS_Store
