@@ -1,6 +1,6 @@
 # Introducing Spot - Your Companion in Making Healthy Choices
 ## HackHarvard
-<img src="./Raw Assets/logo.png" alt="">
+<img src="./Assets/logo.png" alt="">
   
 ### What is the project about?
 People are taking greater care than ever about what they eat. That’s why most smartphones already come with apps to track your health.
@@ -20,8 +20,8 @@ This repository contains the Augmented Reality project we worked on during the H
 
 <img src="./Raw Assets/iPhone X_1.png" alt="Home Screen"> <img src="./Raw Assets/iPhone X_2.png" alt="Augmented Reality">
 
-<img src="./Raw Assets/Desktop 1.jpg" alt="">
-<img src="./Raw Assets/Desktop 2.jpg" alt="">
-<img src="./Raw Assets/Desktop 3.jpg" alt="">
+<img src="./Assets/Desktop 1.jpg" alt="">
+<img src="./Assets/Desktop 2.jpg" alt="">
+<img src="./Assets/Desktop 3.jpg" alt="">
 
 [![Introducing Spot - Your Companion in Making Healthy Choices](http://img.youtube.com/vi/2_GUs7A-0Tg/0.jpg)](http://www.youtube.com/watch?v=2_GUs7A-0Tg "Introducing Spot - Your Companion in Making Healthy Choices")
