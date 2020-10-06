@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t5u-Lk-SeD">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t5u-Lk-SeD">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +19,7 @@
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="ViewController" customModule="CoreML_in_ARKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="ViewController" customModule="HackHarvard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tix-nH-sfG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -88,7 +86,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filter" id="LEW-G5-PfW" customClass="FilterCollectionViewCell" customModule="CoreML_in_ARKit" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filter" id="LEW-G5-PfW" customClass="FilterCollectionViewCell" customModule="HackHarvard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.5" width="100" height="104"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -173,6 +171,7 @@
                                 <rect key="frame" x="176.5" y="322.5" width="22" height="22"/>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="W2V-Gj-Pwx"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7hw-th-DUF" firstAttribute="centerX" secondItem="De6-8u-gsH" secondAttribute="centerX" id="19l-jZ-OqQ"/>
@@ -200,7 +199,6 @@
                             <constraint firstItem="XMs-gA-sya" firstAttribute="top" secondItem="tix-nH-sfG" secondAttribute="top" id="vHp-rp-JQw"/>
                             <constraint firstItem="XMs-gA-sya" firstAttribute="bottom" secondItem="W2V-Gj-Pwx" secondAttribute="bottom" constant="20" id="zam-8D-9DF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="W2V-Gj-Pwx"/>
                     </view>
                     <connections>
                         <outlet property="debugTextView" destination="hWs-m5-HIX" id="aW0-YQ-CNv"/>
@@ -216,7 +214,7 @@
         <!--Camera View Controller-->
         <scene sceneID="JXy-G4-uZm">
             <objects>
-                <viewController id="t5u-Lk-SeD" customClass="CameraViewController" customModule="CoreML_in_ARKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="t5u-Lk-SeD" customClass="CameraViewController" customModule="HackHarvard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oan-QO-5km">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,7 +238,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-d1-rPu">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-d1-rPu">
                                         <rect key="frame" x="20" y="106" width="137" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Caffiene Free">
@@ -250,7 +248,7 @@
                                             <action selector="caffieneFreeAction:" destination="t5u-Lk-SeD" eventType="touchUpInside" id="ffj-1q-fg4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rX9-US-Qs8">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rX9-US-Qs8">
                                         <rect key="frame" x="148" y="68" width="138" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Contains Salt">
@@ -260,7 +258,7 @@
                                             <action selector="highEnergyAction:" destination="t5u-Lk-SeD" eventType="touchUpInside" id="CRQ-ej-kcL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msT-7Q-1ek">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msT-7Q-1ek">
                                         <rect key="frame" x="20" y="68" width="118" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Sugar Free">
@@ -296,6 +294,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="jti-F1-bpp"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MGZ-hf-2M9" firstAttribute="leading" secondItem="jti-F1-bpp" secondAttribute="leading" id="7i6-QZ-tBA"/>
@@ -309,7 +308,6 @@
                             <constraint firstItem="MGZ-hf-2M9" firstAttribute="top" secondItem="jti-F1-bpp" secondAttribute="top" id="sdw-x5-Fmv"/>
                             <constraint firstItem="zEX-vV-FXW" firstAttribute="leading" secondItem="jti-F1-bpp" secondAttribute="leading" constant="16" id="vzd-Wg-x7F"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jti-F1-bpp"/>
                     </view>
                     <connections>
                         <outlet property="caffieneFree" destination="nh9-d1-rPu" id="XYM-b4-o1e"/>
@@ -326,7 +324,7 @@
         <!--Spotlight View Controller-->
         <scene sceneID="qdc-mQ-qbY">
             <objects>
-                <viewController id="ooB-nc-WgL" customClass="SpotlightViewController" customModule="CoreML_in_ARKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ooB-nc-WgL" customClass="SpotlightViewController" customModule="HackHarvard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DYk-Qz-F5O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -346,6 +344,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="bbt-W8-sfK"/>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bbt-W8-sfK" firstAttribute="trailing" secondItem="Ta2-yy-fke" secondAttribute="trailing" constant="68" id="09H-eX-SVc"/>
@@ -354,7 +353,6 @@
                             <constraint firstItem="Ta2-yy-fke" firstAttribute="leading" secondItem="bbt-W8-sfK" secondAttribute="leading" constant="68" id="aHN-Vc-4mc"/>
                             <constraint firstItem="bbt-W8-sfK" firstAttribute="bottom" secondItem="Ta2-yy-fke" secondAttribute="bottom" constant="60" id="twI-aV-UPs"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="bbt-W8-sfK"/>
                     </view>
                     <connections>
                         <outlet property="loader" destination="Ta2-yy-fke" id="yXr-jB-qcJ"/>
@@ -366,7 +364,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow" width="27" height="33"/>
+        <image name="Arrow" width="13.5" height="16.5"/>
         <image name="BlackFilter" width="375" height="349"/>
         <image name="spot logo" width="1000" height="378"/>
     </resources>
