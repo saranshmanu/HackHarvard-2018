@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SpotlightVC.swift
 //  CoreML in ARKit
 //
 //  Created by Hanley Weng on 14/7/17.
@@ -12,26 +12,14 @@ import ARKit
 import Vision
 import Lottie
 
-let filterNames = ["CAFFEINE","DAIRY FREE","EGG FREE","LESS FAT","GLUTEN FREE","NUT FREE","SOY FREE","SUGAR FREE"]
-let filterPositive = ["Least Caffeine Content","Dairy Free","Egg Free","Least Fat content","Gluten Free","Nut Free","Soy Free","Sugar Free"]
-let filterImages = ["Caffeine","DairyFree","EggFree","FatFree","GlutenFree","NutFree","SoyFree","SugarFree"]
-let filterNegative = ["Contains Caffeine","Contains Dairy","Contains Egg","Contains Fat","Contains Gluten","Contains Nut","Contains Soy","Contains Sugar"]
-
-var bananaCode = "Banana "
-var cafeMochaCode = "Cafe Mocha "
-var muffinCode = "Muffin "
-var CocaColaCode = "CocaCola "
-var MandMCode = "M&M "
-var YogurtCode = "Yogurt "
-
 var detectedObjectCode = [String]()
-var detectedObjectData = [food]()
+var detectedObjectData = [Food]()
 
 var totalLength = 0
 var H = [Int]()
 var previousSelected = 0
 
-class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class SpotlightVC: UIViewController, ARSCNViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var scannerAnimation: UIView!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filterImages.count
@@ -39,8 +27,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "filter", for: indexPath) as! FilterCollectionViewCell
-        cell.imageView.image = UIImage.init(named: filterImages[indexPath.row])
-        cell.filterLabel.text = filterNames[indexPath.row]
+        cell.image.image = UIImage.init(named: filterImages[indexPath.row])
+        cell.label.text = filterNames[indexPath.row]
         return cell
     }
     
@@ -212,14 +200,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         // Release any cached data, images, etc that aren't in use.
     }
 
-    // MARK: - ARSCNViewDelegate
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         DispatchQueue.main.async {
             // Do any desired updates to SceneKit here.
         }
     }
     
-    // MARK: - Status Bar: Hide
     override var prefersStatusBarHidden : Bool {
         return true
     }
@@ -345,13 +331,5 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             print(error)
         }
         
-    }
-}
-
-extension UIFont {
-    // Based on: https://stackoverflow.com/questions/4713236/how-do-i-set-bold-and-italic-on-uilabel-of-iphone-ipad
-    func withTraits(traits:UIFontDescriptorSymbolicTraits...) -> UIFont {
-        let descriptor = self.fontDescriptor.withSymbolicTraits(UIFontDescriptorSymbolicTraits(traits))
-        return UIFont(descriptor: descriptor!, size: 0)
     }
 }
