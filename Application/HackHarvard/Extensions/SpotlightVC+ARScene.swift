@@ -27,9 +27,9 @@ extension SpotlightVC: ARSCNViewDelegate {
         if let closestResult = ARResults.first {
             let ARCoordinates: matrix_float4x4 = closestResult.worldTransform
             let SCNCoordinates: SCNVector3 = SCNVector3Make(ARCoordinates.columns.3.x, ARCoordinates.columns.3.y, ARCoordinates.columns.3.z)
-            let SCNPoint: SCNNode = createNewBubbleParentNode(prediction)
+            let SCNPoint: SCNNode = getParentNode(prediction)
             SCNPoint.position = SCNCoordinates
-            SCNNodes.append(Node(SCNNode: SCNPoint, MLPrediction: prediction, placementLabel: prediction, product: products[0]))
+            SCNNodes.append(Node(SCNNode: SCNPoint, MLPrediction: prediction, placementLabel: prediction, product: self.getProductFromPrediction(prediction: prediction)))
             sceneView.scene.rootNode.addChildNode(SCNPoint)
             
         }
@@ -53,7 +53,7 @@ extension SpotlightVC: ARSCNViewDelegate {
         return SCNPointText
     }
     
-    func createNewBubbleParentNode(_ text : String) -> SCNNode {
+    func getParentNode(_ text : String) -> SCNNode {
         // Create a SCNSphere
         let SCNSphereNode = SCNSphere(radius: 0.004)
         SCNSphereNode.firstMaterial?.diffuse.contents = UIColor.cyan

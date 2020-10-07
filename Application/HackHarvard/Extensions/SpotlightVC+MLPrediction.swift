@@ -45,6 +45,11 @@ extension SpotlightVC {
         }
     }
     
+    func getProductFromPrediction(prediction: String) -> Product {
+        // search for product from prediction text from the available list in products
+        return products[0]
+    }
+    
     func loopCoreMLUpdate() {
         // Continuously run CoreML whenever it's ready. (Preventing 'hiccups' in Frame Rate)
         // 1. Loop this function.
