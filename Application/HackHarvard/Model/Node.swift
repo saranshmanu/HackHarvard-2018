@@ -16,10 +16,12 @@ class Node {
     var placementLabel: String?
     var SCNNode: SCNNode?
     var MLPrediction: String?
+    var product: Product?
     
-    init(SCNNode: SCNNode, MLPrediction: String, placementLabel: String) {
+    init(SCNNode: SCNNode, MLPrediction: String, placementLabel: String, product: Product) {
         self.SCNNode = SCNNode
         self.MLPrediction = MLPrediction
         self.placementLabel = placementLabel
+        self.product = product
     }
 }

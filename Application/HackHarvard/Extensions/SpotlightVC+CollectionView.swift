@@ -28,5 +28,6 @@ extension SpotlightVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // update the selected filter
+        self.updateNodes(type: filters[indexPath.row])
     }
 }

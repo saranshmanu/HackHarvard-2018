@@ -41,18 +41,6 @@ class SpotlightVC: UIViewController {
         self.initScanAnimation()
     }
     
-//    func changeNodeText(text:String, number:Int) {
-//        SCNWorldNodes[number].removeFromParentNode()
-//        SCNWorldNodes.remove(at: number)
-//        var closestResult = closestRESULT[number]
-//        let transform : matrix_float4x4 = closestResult.worldTransform
-//        let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-//        let node : SCNNode = createNewBubbleParentNode(text)
-//        sceneView.scene.rootNode.addChildNode(node)
-//        node.position = worldCoord
-//        SCNWorldNodes.insert(node, at: number)
-//    }
-    
     var animation: LOTAnimationView?
     func initScanAnimation() {
         animation = LOTAnimationView(name: "barcode_scanner")
